@@ -27,11 +27,13 @@ vim.keymap.set('n', '<C-f>', 'zzzv')
 vim.keymap.set('n', '<leader><leader>', ':nohl<cr>')
 
 vim.keymap.set('v', '<C-h>', '^')
-vim.keymap.set('v', '<C-j>', '5j')
-vim.keymap.set('v', '<C-k>', '5k')
+vim.keymap.set('v', '<C-j>', '5jzzzv')
+vim.keymap.set('v', '<C-k>', '5kzzzv')
 vim.keymap.set('v', '<C-l>', '$')
 vim.keymap.set('v', '<C-e>', '5<C-e>')
-vim.keymap.set('v', 'p', '_dP')
+vim.keymap.set("x", "p", [["_dP]])
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+
 
 -- Save file
 vim.keymap.set('n', '<C-s>', ':w<cr>')

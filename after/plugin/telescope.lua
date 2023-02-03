@@ -17,6 +17,7 @@ telescope.setup({
     defaults = { mappings = mappings },
     extensions = {
         file_browser = {
+            hidden = true,
             mappings = {
                 i = {
                     ['<C-l>'] = fb_actions.goto_parent_dir
