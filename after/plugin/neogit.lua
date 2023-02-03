@@ -1,3 +1,5 @@
 local neogit = require('neogit')
 
-neogit.setup {}
+neogit.setup {
+    disable_commit_confirmation = true
+}
