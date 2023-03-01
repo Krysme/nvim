@@ -22,9 +22,13 @@ lsp.configure('sumneko_lua', {
     }
 })
 
-local hover_lsp_doc = true
+local hover_lsp_doc = false
+local function toggle_lsp_hover()
+    hover_lsp_doc = not hover_lsp_doc
+end
 
 lsp.setup_nvim_cmp({ mapping = cmp_mappings })
+
 
 lsp.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
@@ -38,9 +42,9 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
 
-    vim.keymap.set("n", "<C-c><C-f>", function() vim.lsp.buf.format() end, opts)
-    vim.keymap.set("i", "<C-c><C-f>", function() vim.lsp.buf.format() end, opts)
-    vim.keymap.set("n", "<leader>i", function() hover_lsp_doc = not hover_lsp_doc end, opts)
+    vim.keymap.set("n", "<C-c><C-f>", vim.lsp.buf.format, opts)
+    vim.keymap.set("i", "<C-c><C-f>", vim.lsp.buf.format, opts)
+    vim.keymap.set("n", "<leader>i", toggle_lsp_hover, opts)
 
 
     vim.api.nvim_create_autocmd('CursorMoved', {
@@ -55,9 +59,7 @@ lsp.on_attach(function(_, bufnr)
     })
     vim.api.nvim_create_autocmd('BufWritePre', {
         group = vim.api.nvim_create_augroup('FormatBuffer', { clear = true }),
-        callback = function()
-            vim.lsp.buf.format()
-        end
+        callback = vim.lsp.buf.format
     })
 end)
 
