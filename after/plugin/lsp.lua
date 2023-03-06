@@ -1,6 +1,6 @@
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
-lsp.ensure_installed({ 'rust_analyzer', 'sumneko_lua' })
+lsp.ensure_installed({ 'rust_analyzer' })
 
 
 local cmp = require('cmp')
@@ -22,11 +22,30 @@ lsp.configure('sumneko_lua', {
     }
 })
 
-local hover_lsp_doc = true
+local hover_lsp_doc = false
 
 lsp.setup_nvim_cmp({ mapping = cmp_mappings })
 
-lsp.on_attach(function(_, bufnr)
+local function lsp_highlight_document(client, bufnr)
+    if client.supports_method "textDocument/documentHighlight" then
+        local group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+
+        vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+            group = group,
+            buffer = bufnr,
+            callback = vim.lsp.buf.document_highlight,
+        })
+        vim.api.nvim_create_autocmd("CursorMoved", {
+            group = group,
+            buffer = bufnr,
+            callback = vim.lsp.buf.clear_references,
+        })
+    end
+end
+
+lsp.on_attach(function(client, bufnr)
+    vim.opt_global.updatetime = 100
+    lsp_highlight_document(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -43,23 +62,31 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set("n", "<leader>i", function() hover_lsp_doc = not hover_lsp_doc end, opts)
 
 
-    vim.api.nvim_create_autocmd('CursorMoved', {
-        group = vim.api.nvim_create_augroup('HighlightObject', { clear = true }),
-        callback = function()
-            pcall(vim.lsp.buf.clear_references)
-            pcall(vim.lsp.buf.document_highlight)
-            if hover_lsp_doc then
-                pcall(vim.lsp.buf.hover)
-            end
-        end
-    })
-    vim.api.nvim_create_autocmd('BufWritePre', {
-        group = vim.api.nvim_create_augroup('FormatBuffer', { clear = true }),
-        callback = function()
-            vim.lsp.buf.format()
-        end
-    })
+
+
+
+    -- vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI', {
+    --     pattern = { "*.rs", "*.c", "*.go", "*.lua" },
+    --     group = vim.api.nvim_create_augroup('HighlightObject', { clear = true }),
+    --     callback = function()
+    --         pcall(vim.lsp.buf.clear_references)
+    --         pcall(vim.lsp.buf.document_highlight)
+    --         if hover_lsp_doc then
+    --             pcall(vim.lsp.buf.hover)
+    --         end
+    --     end
+    -- })
+    -- vim.api.nvim_create_autocmd('BufWritePre', {
+    --     pattern = { "*.rs", "*.c", "*.go", "*.lua" },
+    --     group = vim.api.nvim_create_augroup('FormatBuffer', { clear = true }),
+    --     callback = function()
+    --         vim.lsp.buf.format()
+    --     end
+    -- })
 end)
+
+
+
 
 
 lsp.setup()
