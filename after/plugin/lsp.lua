@@ -71,7 +71,7 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 
-require('nvim-lightbulb').setup({autocmd = {enabled = true}})
+require('nvim-lightbulb').setup({ autocmd = { enabled = true } })
 
 
 lsp.setup()
