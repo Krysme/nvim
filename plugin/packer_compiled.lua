@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/yangdonglin/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/home/yangdonglin/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/yangdonglin/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -129,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/yangdonglin/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["matchparen.nvim"] = {
+    loaded = true,
+    path = "/home/yangdonglin/.local/share/nvim/site/pack/packer/start/matchparen.nvim",
+    url = "https://github.com/monkoose/matchparen.nvim"
+  },
   ["neodev.nvim"] = {
     config = { "\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vneodev\frequire\0" },
     loaded = true,
@@ -144,6 +154,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yangdonglin/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-lightbulb"] = {
+    loaded = true,
+    path = "/home/yangdonglin/.local/share/nvim/site/pack/packer/start/nvim-lightbulb",
+    url = "https://github.com/kosayoda/nvim-lightbulb"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -175,6 +190,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yangdonglin/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
     url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
+  },
+  ["telescope-lsp-handlers.nvim"] = {
+    loaded = true,
+    path = "/home/yangdonglin/.local/share/nvim/site/pack/packer/start/telescope-lsp-handlers.nvim",
+    url = "https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

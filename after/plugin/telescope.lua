@@ -7,32 +7,35 @@ local mappings = {
         ['<C-g>'] = actions.close,
         ['<Tab>'] = actions.select_default,
     },
+    n = {
+        ['<C-g>'] = actions.close,
+    }
 }
 
 
 
 
 local fb_actions = require "telescope".extensions.file_browser.actions
+
 telescope.setup({
     defaults = { mappings = mappings },
+    theme = "dropdown",
     extensions = {
         file_browser = {
             hidden = true,
+            theme = "dropdown",
             mappings = {
                 i = {
-                    ['<C-l>'] = fb_actions.goto_parent_dir
+                    ['<C-l>'] = fb_actions.goto_parent_dir,
+                    ['<C-c>n'] = fb_actions.create,
                 },
                 n = {
                     ['<C-l>'] = fb_actions.goto_parent_dir
                 }
             }
-        }
+        },
     }
 })
 
 
-telescope.load_extension "file_browser"
-
-
-
-
+telescope.load_extension("file_browser")
