@@ -7,6 +7,9 @@ local mappings = {
         ['<C-g>'] = actions.close,
         ['<Tab>'] = actions.select_default,
     },
+    n = {
+        ['<C-g>'] = actions.close,
+    }
 }
 
 
