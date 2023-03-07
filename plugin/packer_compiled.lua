@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/home/yangdonglin/.local/share/nvim/site/pack/packer/start/FTerm.nvim",
     url = "https://github.com/numToStr/FTerm.nvim"
   },
-  ["FixCursorHold.nvim"] = {
-    loaded = true,
-    path = "/home/yangdonglin/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
-    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
-  },
   LuaSnip = {
     loaded = true,
     path = "/home/yangdonglin/.local/share/nvim/site/pack/packer/start/LuaSnip",

@@ -47,7 +47,7 @@ return require('packer').startup(function(use)
     }
     use {
         'kosayoda/nvim-lightbulb',
-        requires = 'antoinemadec/FixCursorHold.nvim',
+        --requires = 'antoinemadec/FixCursorHold.nvim',
     }
     use({ "folke/neodev.nvim",
         config = function()
