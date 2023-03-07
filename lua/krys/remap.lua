@@ -34,6 +34,10 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 -- Save file
 vim.keymap.set('n', '<C-s>', ':w<cr>')
 
+
+
+vim.keymap.set('n', '<C-x><C-c>', ':wqa<CR>')
+
 -- Window jumping
 vim.keymap.set('n', '<leader>k', '<CMD>bd<cr>')
 vim.keymap.set('n', '<leader>wo', '<C-w>o')

@@ -24,7 +24,9 @@ vim.opt.termguicolors = true
 
 
 
+-- for NeoVide
 vim.o.guifont = "Jetbrains Mono:h10"
 vim.g.neovide_scale_factor = 1.0
 vim.opt.linespace = 0
 vim.g.neovide_cursor_animation_length = 0
+vim.g.neovide_cursor_antialiasing = true
