@@ -1,5 +1,6 @@
 local function double_control_c_to_save_quit()
     vim.keymap.set({ 'n', 'i' }, '<C-c><C-c>', '<cmd>wq<CR>', { buffer = true })
+    vim.keymap.set({ 'n', 'i' }, '<C-c><C-k>', '<cmd>q!<CR>', { buffer = true })
 end
 
 local group = vim.api.nvim_create_augroup("lsp-hooks", { clear = true })
