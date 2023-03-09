@@ -2,7 +2,6 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 lsp.ensure_installed({ 'rust_analyzer', 'clangd' })
 
-
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -16,28 +15,28 @@ require "fidget".setup {}
 
 lsp.setup_nvim_cmp({ mapping = cmp_mappings })
 
-local function lsp_autocmd(client, bufnr)
-    local group = vim.api.nvim_create_augroup("lsp-hooks", { clear = true })
+local function lsp_autocmd(client, buffer)
+    local group_name = string.format('lsp-hook-%d', buffer)
+    local group = vim.api.nvim_create_augroup(group_name, { clear = true })
     if client.supports_method "textDocument/documentHighlight" then
         vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
             group = group,
-            buffer = bufnr,
+            buffer = buffer,
             callback =
                 function()
                     vim.lsp.buf.document_highlight()
-                    --       vim.lsp.buf.hover()
                 end
         })
         vim.api.nvim_create_autocmd("CursorMoved", {
             group = group,
-            buffer = bufnr,
+            buffer = buffer,
             callback = vim.lsp.buf.clear_references,
         })
     end
 
     vim.api.nvim_create_autocmd("BufWritePre", {
         group = group,
-        buffer = bufnr,
+        buffer = buffer,
         callback = function() vim.lsp.buf.format() end,
     })
 end
@@ -51,7 +50,6 @@ local function lsp_attach(client, bufnr)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
     vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
     vim.keymap.set({ 'n', 'i' }, "<C-c><C-c>", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>o", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
