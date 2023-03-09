@@ -61,6 +61,8 @@ vim.keymap.set('t', '<C-4>', require('FTerm').toggle, {})
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {})
 
 vim.keymap.set('n', '<leader>pp', builtin.git_files, {})
+
+vim.keymap.set("n", "<leader>,r", builtin.live_grep, {})
 vim.keymap.set('n', '<leader>ps', function()
     builtin.grep_string({ search = vim.fn.input('Grep > ') })
 end)
