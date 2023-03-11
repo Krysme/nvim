@@ -79,4 +79,5 @@ end
 
 vim.keymap.set({ 'i', 'n', 'v' }, '<C-=>', function() font_scale({ factor = 1.1 }) end, {})
 vim.keymap.set({ 'i', 'n', 'v' }, '<C-->', function() font_scale({ factor = 1 / 1.1 }) end, {})
+vim.keymap.set({ 'i', 'n', 'v' }, '<C-0>', font_scale, {})
 vim.api.nvim_create_user_command('RestoreFontScale', font_scale, {})
