@@ -1,5 +1,5 @@
 vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -22,7 +22,6 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.termguicolors = true
 
-
 local wayland_env = os.getenv("WAYLAND_DISPLAY")
 
 if wayland_env ~= nil then
@@ -37,3 +36,4 @@ vim.g.neovide_scale_factor = 1.0
 vim.opt.linespace = 0
 vim.g.neovide_cursor_animation_length = 0
 vim.g.neovide_cursor_antialiasing = true
+
