@@ -56,6 +56,15 @@ vim.keymap.set('n', '<leader>mg', '<cmd>Neogit<cr>')
 vim.keymap.set('n', '<leader>r', builtin.oldfiles)
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', 'gr', builtin.lsp_references, {})
+
+if vim.g.neovide then
+    vim.keymap.set('n', '<C-4>', require('FTerm').toggle, {})
+    vim.keymap.set('t', '<C-4>', require('FTerm').toggle, {})
+else
+    vim.keymap.set('n', '<C-\\>', require('FTerm').toggle, {})
+    vim.keymap.set('t', '<C-\\>', require('FTerm').toggle, {})
+end
+
 vim.keymap.set('n', '<C-4>', require('FTerm').toggle, {})
 vim.keymap.set('t', '<C-4>', require('FTerm').toggle, {})
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {})
