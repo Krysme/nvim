@@ -23,7 +23,7 @@ telescope.setup({
     extensions = {
         file_browser = {
             hidden = true,
-            theme = "dropdown",
+            theme = "ivy",
             mappings = {
                 i = {
                         ['<C-l>'] = fb_actions.goto_parent_dir,
