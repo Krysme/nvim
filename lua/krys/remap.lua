@@ -1,5 +1,4 @@
 vim.g.mapleader = ' '
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 vim.keymap.set('n', 'q', '<nop>')
 
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
@@ -22,13 +21,16 @@ vim.keymap.set('n', '<C-l>', '$')
 vim.keymap.set('n', '<C-e>', '5<C-e>')
 vim.keymap.set('n', '<C-f>', 'zzzv')
 vim.keymap.set('n', '<leader><leader>', ':nohl<cr>')
+vim.keymap.set("n", "<leader>p", '"+p')
 
 vim.keymap.set('v', '<C-h>', '^')
 vim.keymap.set('v', '<C-j>', '5j')
 vim.keymap.set('v', '<C-k>', '5k')
 vim.keymap.set('v', '<C-l>', '$')
 vim.keymap.set('v', '<C-e>', '5<C-e>')
+
 vim.keymap.set("x", "p", [["_dP]])
+
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
 
@@ -54,7 +56,6 @@ vim.keymap.set('n', '<leader>f', '<cmd>Telescope file_browser<cr>')
 vim.keymap.set('n', '<C-c>l', builtin.diagnostics)
 vim.keymap.set('n', '<leader>mg', '<cmd>Neogit<cr>')
 vim.keymap.set('n', '<leader>r', builtin.oldfiles)
-vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', 'gr', builtin.lsp_references, {})
 
 if vim.g.neovide then
@@ -69,12 +70,7 @@ vim.keymap.set('n', '<C-4>', require('FTerm').toggle, {})
 vim.keymap.set('t', '<C-4>', require('FTerm').toggle, {})
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {})
 
-vim.keymap.set('n', '<leader>pp', builtin.git_files, {})
-
 vim.keymap.set("n", "<leader>,r", builtin.live_grep, {})
-vim.keymap.set('n', '<leader>ps', function()
-    builtin.grep_string({ search = vim.fn.input('Grep > ') })
-end)
 
 local function font_scale(opt)
     if opt and opt.factor then
