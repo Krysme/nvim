@@ -26,8 +26,7 @@ vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set('v', '<C-h>', '^')
 vim.keymap.set('v', '<C-j>', '5j')
 vim.keymap.set('v', '<C-k>', '5k')
-vim.keymap.set('v', '<C-l>', '$')
-vim.keymap.set('v', '<C-e>', '5<C-e>')
+vim.keymap.set('v', '<C-l>', '$') vim.keymap.set('v', '<C-e>', '5<C-e>')
 
 vim.keymap.set("x", "p", [["_dP]])
 
@@ -84,7 +83,21 @@ local function font_scale(opt)
     end
 end
 
+vim.opt.linespace = 3
+vim.o.guifont = "JetBrains Mono:h15"
+vim.g.neovide_transparency = 0.8
+
 vim.keymap.set({ 'i', 'n', 'v' }, '<C-=>', function() font_scale({ factor = 1.1 }) end, {})
 vim.keymap.set({ 'i', 'n', 'v' }, '<C-->', function() font_scale({ factor = 1 / 1.1 }) end, {})
 vim.keymap.set({ 'i', 'n', 'v' }, '<C-0>', font_scale, {})
 vim.api.nvim_create_user_command('RestoreFontScale', font_scale, {})
+
+local function toggle_full_screen()
+    vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
+end
+
+vim.keymap.set({ 'i', 'n', 'v' }, '<F11>', toggle_full_screen, {})
+vim.api.nvim_create_user_command('ToggleFullScreen', toggle_full_screen, {})
+
+vim.g.neovide_fullscreen = false
+
