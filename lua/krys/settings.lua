@@ -33,5 +33,7 @@ end
 -- for NeoVide
 vim.g.neovide_scale_factor = 1.0
 vim.opt.linespace = 0
-vim.g.neovide_cursor_animation_length = 0
+-- vim.g.neovide_cursor_animation_length = 0
 vim.g.neovide_cursor_antialiasing = true
+vim.o.guifont = "JetBrains Mono:h15"
+vim.g.neovide_transparency = 1

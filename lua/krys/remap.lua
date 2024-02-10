@@ -84,8 +84,6 @@ local function font_scale(opt)
 end
 
 vim.opt.linespace = 3
-vim.o.guifont = "JetBrains Mono:h15"
-vim.g.neovide_transparency = 0.8
 
 vim.keymap.set({ 'i', 'n', 'v' }, '<C-=>', function() font_scale({ factor = 1.1 }) end, {})
 vim.keymap.set({ 'i', 'n', 'v' }, '<C-->', function() font_scale({ factor = 1 / 1.1 }) end, {})
