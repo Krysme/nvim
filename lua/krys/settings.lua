@@ -37,3 +37,4 @@ vim.opt.linespace = 0
 vim.g.neovide_cursor_antialiasing = true
 vim.o.guifont = "JetBrains Mono:h15"
 vim.g.neovide_transparency = 1
+
