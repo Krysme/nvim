@@ -17,7 +17,7 @@ return {
 	{
 		'windwp/nvim-autopairs',
 		event = "InsertEnter",
-		opts = {} 
+		opts = {},
 	},
 	{'williamboman/mason.nvim'},
 	{'williamboman/mason-lspconfig.nvim'},
@@ -29,7 +29,8 @@ return {
 	{
 		"j-hui/fidget.nvim",
 		opts = { },
-	}
+	},
+    { "folke/neodev.nvim", opts = {} }
 }
 
 

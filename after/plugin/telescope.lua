@@ -4,11 +4,11 @@ local telescope = require('telescope')
 
 local mappings = {
     i = {
-            ['<C-g>'] = actions.close,
-            ['<Tab>'] = actions.select_default,
+        ['<C-g>'] = actions.close,
+        ['<Tab>'] = actions.select_default,
     },
     n = {
-            ['<C-g>'] = actions.close,
+        ['<C-g>'] = actions.close,
     }
 }
 
@@ -26,11 +26,11 @@ telescope.setup({
             theme = "ivy",
             mappings = {
                 i = {
-                        ['<C-l>'] = fb_actions.goto_parent_dir,
-                        ['<C-c>n'] = fb_actions.create,
+                    ['<C-l>'] = fb_actions.goto_parent_dir,
+                    ['<C-c>n'] = fb_actions.create,
                 },
                 n = {
-                        ['<C-l>'] = fb_actions.goto_parent_dir
+                    ['<C-l>'] = fb_actions.goto_parent_dir
                 }
             }
         },
