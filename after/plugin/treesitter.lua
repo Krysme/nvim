@@ -13,7 +13,6 @@ require 'nvim-treesitter.configs'.setup {
       keymaps = {
           init_selection = "<C-v>",
           scope_incremental = "v",
-          scope_decremental = "<BS>",
       }
   }
 }
