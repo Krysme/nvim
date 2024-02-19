@@ -1,5 +1,7 @@
 require 'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "lua", "rust" },
+  ignore_install = {},
+  modules = {},
   sync_install = true,
 
   auto_install = true,

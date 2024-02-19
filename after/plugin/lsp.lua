@@ -1,16 +1,16 @@
 local lsp_zero = require('lsp-zero')
-lsp_zero.on_attach(function(client,bufnr)
-    lsp_zero.default_keymaps({buffer = bufnr})
+lsp_zero.on_attach(function(client, bufnr)
+    lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
-require('lspconfig').rust_analyzer.setup{
+require('lspconfig').rust_analyzer.setup {
     settings = {
         ['rust-analyzer'] = {},
     },
 }
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = {'rust_analyzer'},
+    ensure_installed = { 'rust_analyzer', 'clangd', 'pyright' },
     handlers = {
         lsp_zero.default_setup,
     }
@@ -22,7 +22,9 @@ lsp_zero.format_on_save({
         timeout_ms = 10000,
     },
     servers = {
-        ['rust_analyzer'] = {'rust'},
+        ['rust_analyzer'] = { 'rust' },
+        ['clangd'] = { 'c', 'cpp' },
+        ['lua_ls'] = { 'lua' },
     }
 })
 
@@ -31,14 +33,17 @@ lsp_zero.format_on_save({
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp_zero.defaults.cmp_mappings({
+
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        -- `Enter` key to confirm completion
+        ['<Tab>'] = cmp.mapping.confirm({ select = false }),
+
         ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+
+    })
 })
---
---
---lsp.setup_nvim_cmp({ mapping = cmp_mappings })
 --
 local function lsp_autocmd(client, buffer)
     local group_name = string.format('lsp-hook-%d', buffer)
@@ -66,7 +71,7 @@ local function lsp_attach(client, bufnr)
     lsp_autocmd(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
     vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
     vim.keymap.set({ 'n', 'i' }, "<C-c><C-c>", vim.lsp.buf.code_action, opts)
@@ -125,4 +130,3 @@ lsp_zero.on_attach(lsp_attach)
 vim.diagnostic.config({
     virtual_text = true,
 })
-
