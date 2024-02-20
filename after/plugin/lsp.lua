@@ -10,7 +10,7 @@ require('lspconfig').rust_analyzer.setup {
 }
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'rust_analyzer', 'clangd', 'pyright' },
+    ensure_installed = { 'rust_analyzer', 'clangd', 'lua_ls' },
     handlers = {
         lsp_zero.default_setup,
     }
