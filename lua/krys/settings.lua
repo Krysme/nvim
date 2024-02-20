@@ -18,6 +18,7 @@ vim.opt.timeoutlen = 10000
 vim.opt.cursorline = true
 vim.opt.colorcolumn = "80"
 vim.opt.scrolloff = 5
+vim.o.fileformats = 'unix'
 
 
 
@@ -42,4 +43,3 @@ vim.opt.linespace = 0
 vim.g.neovide_cursor_antialiasing = true
 vim.o.guifont = "JetBrains Mono:h15"
 vim.g.neovide_transparency = 1
-
