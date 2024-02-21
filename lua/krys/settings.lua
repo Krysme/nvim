@@ -16,7 +16,7 @@ vim.opt.scrolloff = 8
 vim.opt.autochdir = true
 vim.opt.timeoutlen = 10000
 vim.opt.cursorline = true
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 vim.opt.scrolloff = 5
 vim.o.fileformats = 'unix'
 
