@@ -59,7 +59,7 @@ vim.keymap.set('n', '<leader>b', builtin.buffers)
 vim.keymap.set('n', '<leader>f', '<cmd>Telescope file_browser<cr>')
 vim.keymap.set('n', '<leader>/', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
 vim.keymap.set('n', '<C-c>l', builtin.diagnostics)
-vim.keymap.set('n', '<leader>mg', '<cmd>Neogit<cr>')
+vim.keymap.set('n', '<leader>mg', function() require('neogit').open({ cwd = "%:p:h" }) end)
 vim.keymap.set('n', '<leader>r', builtin.oldfiles)
 vim.keymap.set('n', 'gr', builtin.lsp_references, {})
 
