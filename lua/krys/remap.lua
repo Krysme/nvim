@@ -26,7 +26,8 @@ vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set('v', '<C-h>', '^')
 vim.keymap.set('v', '<C-j>', '5j')
 vim.keymap.set('v', '<C-k>', '5k')
-vim.keymap.set('v', '<C-l>', '$') vim.keymap.set('v', '<C-e>', '5<C-e>')
+vim.keymap.set('v', '<C-l>', '$')
+vim.keymap.set('v', '<C-e>', '5<C-e>')
 
 vim.keymap.set("x", "p", [["_dP]])
 
@@ -41,7 +42,11 @@ vim.keymap.set('n', '<C-s>', ':w<cr>')
 vim.keymap.set('n', '<C-x><C-c>', ':wqa<CR>')
 
 -- Window jumping
-vim.keymap.set('n', '<leader>k', '<CMD>bd<cr>')
+vim.keymap.set('n', '<leader>k', function()
+    vim.cmd('bn')
+    vim.cmd('bd#')
+end)
+
 vim.keymap.set('n', '<leader>wo', '<C-w>o')
 vim.keymap.set('n', '<leader>wl', '<C-w>l')
 vim.keymap.set('n', '<leader>wh', '<C-w>h')
@@ -99,4 +104,3 @@ vim.keymap.set({ 'i', 'n', 'v' }, '<F11>', toggle_full_screen, {})
 vim.api.nvim_create_user_command('ToggleFullScreen', toggle_full_screen, {})
 
 vim.g.neovide_fullscreen = false
-
