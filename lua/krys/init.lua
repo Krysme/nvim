@@ -5,3 +5,4 @@ require('krys.settings')
 
 require("krys.lazy")
 require("krys.remap")
+-- require("krys.util")

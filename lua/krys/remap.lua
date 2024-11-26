@@ -1,3 +1,5 @@
+-- local util = require("krys.util")
+
 vim.g.mapleader = ' '
 vim.keymap.set('n', 'q', '<nop>')
 
