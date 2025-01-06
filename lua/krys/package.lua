@@ -10,7 +10,7 @@ return {
 	{ "rose-pine/neovim", name = "rose-pine" },
 	{ 'stevearc/dressing.nvim' },
 	{ 'julienvincent/nvim-paredit', },
-	{ 'TimUntersberger/neogit', dependencies = 'nvim-lua/plenary.nvim' },
+	{ 'NeogitOrg/neogit', dependencies = 'nvim-lua/plenary.nvim' },
 	{ "numToStr/FTerm.nvim" },
 	{ 'nvim-treesitter/nvim-treesitter' },
 	{ 'navarasu/onedark.nvim' },
