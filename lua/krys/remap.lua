@@ -43,11 +43,20 @@ vim.keymap.set('n', '<C-s>', ':w<cr>')
 
 vim.keymap.set('n', '<C-x><C-c>', ':wqa<CR>')
 
+
+local function smart_delete()
+    local bufs = vim.fn.getbufinfo({ buflisted = 1 })
+
+    if #bufs > 1 then
+        vim.cmd('bnext')
+        vim.cmd('bdelete #')
+    else
+        vim.cmd('bdelete')
+    end
+end
+
 -- Window jumping
-vim.keymap.set('n', '<leader>k', function()
-    vim.cmd('bn')
-    vim.cmd('bd#')
-end)
+vim.keymap.set('n', '<leader>k', smart_delete)
 
 vim.keymap.set('n', '<leader>wo', '<C-w>o')
 vim.keymap.set('n', '<leader>wl', '<C-w>l')
