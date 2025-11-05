@@ -1,9 +1,9 @@
 return {
     { 'nvim-tree/nvim-tree.lua' },
-    { 'wbthomason/packer.nvim' },
-
-    { 'nvim-telescope/telescope.nvim' },
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    {
+        'nvim-telescope/telescope.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+    },
 
     { 'nvim-telescope/telescope-file-browser.nvim' },
     { 'gbrlsnchs/telescope-lsp-handlers.nvim' },

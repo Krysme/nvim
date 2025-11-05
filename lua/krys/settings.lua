@@ -12,9 +12,7 @@ vim.opt.wrap = false
 vim.opt.undofile = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.opt.scrolloff = 8
-vim.opt.autochdir = true
-vim.opt.timeoutlen = 10000
+vim.opt.timeoutlen = 500
 vim.opt.cursorline = true
 vim.opt.colorcolumn = "120"
 vim.opt.scrolloff = 5
@@ -36,10 +34,10 @@ else
     vim.o.guifont = "Jetbrains Mono:h10"
 end
 
--- for NeoVide
-vim.g.neovide_scale_factor = 1.0
-vim.opt.linespace = 0
--- vim.g.neovide_cursor_animation_length = 0
-vim.g.neovide_cursor_antialiasing = true
-vim.o.guifont = "JetBrains Mono:h15"
-vim.g.neovide_transparency = 1
+if vim.g.neovide then
+    vim.g.neovide_scale_factor = 1.0
+    vim.opt.linespace = 0
+    --vim.g.neovide_cursor_animation_length = 0
+    vim.g.neovide_cursor_antialiasing = true
+    vim.g.neovide_transparency = 1
+end
