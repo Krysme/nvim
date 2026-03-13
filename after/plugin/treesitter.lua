@@ -1,7 +1,7 @@
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { "c", "cpp", "lua", "rust",
         "bash", "python", "yaml", "make", "cmake",
-        "ini", "markdown", "git_config", "gitignore", "ssh_config" },
+        "ini", "markdown", "git_config", "gitignore", "ssh_config", "passwd" },
     ignore_install = {},
     modules = {},
     sync_install = true,
