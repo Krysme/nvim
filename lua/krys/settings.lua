@@ -39,5 +39,5 @@ if vim.g.neovide then
     vim.opt.linespace = 0
     --vim.g.neovide_cursor_animation_length = 0
     vim.g.neovide_cursor_antialiasing = true
-    vim.g.neovide_transparency = 1
+    vim.g.neovide_opacity = 1
 end
