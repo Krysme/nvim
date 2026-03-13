@@ -17,6 +17,14 @@ return {
             "sindrets/diffview.nvim",
         }
     },
+    {
+        "lambdalisue/suda.vim",
+        cmd = { "SudaRead", "SudaWrite" }, -- Lazy-load on commands
+        init = function()
+            -- Optional: setup commands or mappings
+            vim.g.suda_smart_edit = 1
+        end,
+    },
     { "numToStr/FTerm.nvim" },
     { 'nvim-treesitter/nvim-treesitter' },
     { 'navarasu/onedark.nvim' },
